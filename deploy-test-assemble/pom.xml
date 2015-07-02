@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.pentaho</groupId>
+        <artifactId>deploy-test-parent</artifactId>
+        <version>6.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>deploy-test-assemble</artifactId>
+    <version>6.0-SNAPSHOT</version>
+    <packaging>kar</packaging>
+
+    <name>Deploy Test Assemble</name>
+    <description>Deploy Test Assemble</description>
+
+    <properties>
+        <plugin.org.apache.maven.plugins.maven-bundle-plugin.version>2.3.7</plugin.org.apache.maven.plugins.maven-bundle-plugin.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.pentaho</groupId>
+            <artifactId>deploy-test-bundle</artifactId>
+            <version>6.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>karaf-maven-plugin</artifactId>
+                <version>3.0.2</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <aggregateFeatures>true</aggregateFeatures>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
